@@ -21,7 +21,7 @@ namespace DVLD_Project
     {
         clsApplicationType _ApplicationType;
         clsApplication _ApplicationObj;
-        LocalDrivingLicApp LDA_obj;
+        LocalDrivingLicApp _LDAppobj;
 
         int _PersonID = 0;
 
@@ -83,11 +83,21 @@ namespace DVLD_Project
 
             return (LocalDrivingLicApp.CheckIsLDApplicationCompletedByClassNameAndPersonID(ClassName, PersonID)
                   ||
-                    LocalDrivingLicApp.CheckIsLDApplicationCompletedByClassNameAndPersonID(ClassName, PersonID)
+                    LocalDrivingLicApp.CheckIsLdApplicationIsNewByClassNameAndPersonID(ClassName, PersonID)
                     );
         }
 
-        void _FillApplicationOvjAndSave()
+        bool _FillLocalDrivingLicenseAppObj_Save(int classID,int ApplicationID)
+        {
+            _LDAppobj = new LocalDrivingLicApp();
+
+            _LDAppobj.ApplicationID = ApplicationID;
+            _LDAppobj.LicenseClassID = classID;
+
+            return (_LDAppobj.Save());
+        }
+
+        void _FillApplicationObjAndSave()
         {
             _ApplicationObj = new clsApplication();
 
@@ -99,9 +109,25 @@ namespace DVLD_Project
             _ApplicationObj.paidfees = 15;
             _ApplicationObj.createdbyuserid = GlobalSettings._GlobalUserObj.ID;
 
+            string ClassName = CbLicenseClasses.SelectedItem.ToString();
+            int ClassId = clsApplication.GetLicenseClassIDbyClassName(ClassName);
+
             if (_ApplicationObj.Save())
             {
-                // here we should get the license class id using className
+                if (_FillLocalDrivingLicenseAppObj_Save(ClassId,_ApplicationObj.applicationid))
+                {
+                    MessageBox.Show("Saved", "Data saved Succesfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Saved", "Data saved Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                // here we should get the license class id using className to save application reference to l.d.a
+
+            }
+            else
+            {
+                MessageBox.Show("Saved", "Data saved Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -115,16 +141,22 @@ namespace DVLD_Project
 
             if (_isPersonHasOrNewIn_A_LdApp())
             {
-                _ApplicationObj = clsApplication.FindByPersonID(_PersonID);
-                LDA_obj = LocalDrivingLicApp.FindByApplicationID(_ApplicationObj.applicationpersonid);
+                string ClassName = CbLicenseClasses.SelectedItem.ToString();
+                _ApplicationObj = clsApplication.FindByPersonIDAndClassName(_PersonID,ClassName);
+                 
+                if(_ApplicationObj != null)
+                _LDAppobj = LocalDrivingLicApp.FindByApplicationID(_ApplicationObj.applicationid);
 
-                MessageBox.Show($"Choose another class,the selected person Already have an active application for the selected class with Id =" +
-                                 $" {LDA_obj.LocalDrivingLicenseApplicationID};", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
+                if (_LDAppobj != null)
+                {
+                    MessageBox.Show($"Choose another class,the selected person Already have an active application for the selected class with Id =" +
+                                     $" {_LDAppobj.LocalDrivingLicenseApplicationID};", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {
-                _FillApplicationOvjAndSave();
+                _FillApplicationObjAndSave();
             }
         }
 
