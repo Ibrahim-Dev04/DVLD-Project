@@ -101,6 +101,12 @@
     <Compile Include="frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmManageLocalLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmManageLocalLicenseApplications.Designer.cs">
+      <DependentUpon>FrmManageLocalLicenseApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmManageLocalLicenseApplications.resx">
+      <DependentUpon>FrmManageLocalLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManagePeople.resx">
       <DependentUpon>frmManagePeople.cs</DependentUpon>
@@ -449,6 +458,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MangeApplications128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\project-management64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\project-management641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_app2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

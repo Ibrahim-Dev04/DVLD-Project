@@ -83,7 +83,7 @@ namespace DVLD_Project
 
         private void ctrlPersonInformation_Load(object sender, EventArgs e)
         {
-           
+            _DisplayPersonInfoToControl(_PersonID);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

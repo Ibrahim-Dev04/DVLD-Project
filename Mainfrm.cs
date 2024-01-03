@@ -99,5 +99,16 @@ namespace DVLD_Project
         {
             _apptypeID = 1;
         }
+
+        private void manageAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void localDrivingLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageLocalLicenseApplications frm = new FrmManageLocalLicenseApplications();
+            frm.ShowDialog();
+        }
     }
 }

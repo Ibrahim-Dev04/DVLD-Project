@@ -64,6 +64,8 @@ namespace DVLD_Project
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            int PersonID = Convert.ToInt32(lblPersonID.Text.ToString());
+            PersonIDBack?.Invoke(this, PersonID);
             this.Close();
         }
 

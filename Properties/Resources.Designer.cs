@@ -83,6 +83,26 @@ namespace DVLD_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_app2 {
+            get {
+                object obj = ResourceManager.GetObject("add_app2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_application {
+            get {
+                object obj = ResourceManager.GetObject("add_application", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddIcon {
             get {
                 object obj = ResourceManager.GetObject("AddIcon", resourceCulture);
@@ -543,6 +563,16 @@ namespace DVLD_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MangeApplications128 {
+            get {
+                object obj = ResourceManager.GetObject("MangeApplications128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nationalid {
             get {
                 object obj = ResourceManager.GetObject("nationalid", resourceCulture);
@@ -616,6 +646,26 @@ namespace DVLD_Project.Properties {
         internal static System.Drawing.Bitmap phone_ {
             get {
                 object obj = ResourceManager.GetObject("phone_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap project_management64 {
+            get {
+                object obj = ResourceManager.GetObject("project-management64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap project_management641 {
+            get {
+                object obj = ResourceManager.GetObject("project-management641", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
